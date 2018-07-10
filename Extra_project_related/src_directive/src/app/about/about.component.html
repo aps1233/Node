@@ -1,0 +1,21 @@
+<div *appStr="nam">
+  <h1>Sumit Joshi</h1>
+</div>
+<ul>
+  <li *cpLoop="5" >
+      Hello World!
+  </li> 
+ </ul> 
+ <div>
+  Show message after
+  <input type="radio" name="rad2" (click)= "showCpDelay= true; delayInSec = 2000"> 2 Seconds
+  <input type="radio" name="rad2" (click)= "showCpDelay= true; delayInSec = 5000"> 5 Seconds
+  <input type="radio" name="rad2" (click)= "showCpDelay= true; delayInSec = 7000"> 7 Seconds
+</div>
+<br/>
+
+<div *appStr="showCpDelay">
+   <div *cpDelay="delayInSec">
+      <b> Hello cpDelay Directive. </b>	     
+   </div>
+</div> 

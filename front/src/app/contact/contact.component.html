@@ -1,0 +1,29 @@
+<div class="container">
+	<h3>Contact us</h3>
+	<form method="post" #f1="ngForm">
+	<!-- The variable #f1 is now a reference to the NgForm directive that governs the form as a whole. -->
+	  <div class="form-group">
+		<label>Name</label>
+		<input type="text" [(ngModel)]="myData.nam_o" name="nam_name" class="form-control" #nam_p="ngModel" required pattern="[a-zA-Z ]{3,30}"/>
+			<!--{{myData.nam_o|filter:4}} ,  [(ngModel)]="myData.nam" and {{myData.nam}} is using for 2 way data binding , no use of any controller-->
+		<div *ngIf="nam_p.invalid && nam_p.touched" class="alert alert-danger"> 
+		   <label *ngIf="nam_p.errors.required">{{err_name}}</label>
+		   <label *ngIf="nam_p.errors.pattern">{{err_len}}</label>
+		</div>
+		
+	  </div>
+	  
+	  
+		<div class="form-group">
+		  <label>Age</label>
+		  <input type="text" [(ngModel)]="myData.age_g" name="age" class="form-control" #ae_p="ngModel" required pattern="[0-9]{1,2}" />
+		  <div *ngIf="ae_p.invalid && ae_p.touched" class="alert alert-danger"> 
+			{{err_age}}
+		  </div>
+		  <!--{{myData.age_g}}-->
+		</div>
+	  <input type="button" value="Submit" class="btn btn-success" [disabled]="f1.invalid" (click)="submit_value()"/>&nbsp;&nbsp;
+	  <input type="button" value="Reset" class="btn btn-success" (click)="f1.reset()"/>
+
+	</form>
+</div>

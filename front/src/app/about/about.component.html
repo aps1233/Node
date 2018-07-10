@@ -1,0 +1,28 @@
+<div appCustom appSecond>anubhav</div>
+<br>
+
+<div appThird = "blue" appThird2 = 'green'>input</div> 
+<br>
+
+<div *appFourthDir>boo</div> <!-- [it is structure * directive example] you can pass the condition but if you used @input decorator for isHidden-->
+
+<br>
+
+<div appFifthDir>anubhav singh</div>
+
+<div *appSixthLoopDir='5'>a1</div>
+
+
+  <input type="radio" name="rad2" (click)= "showcount= 2; delay = 2000;" > 2 Seconds
+  <input type="radio" name="rad2" (click)= "showcount= 5; delay = 5000;" > 5 Seconds
+  <input type="radio" name="rad2" (click)= "showcount= 7; delay = 7000;" > 7 Seconds
+
+  <div *appSixthLoopDir="showcount">
+    <div *appFinal7="delay">hhh</div>
+  </div> 
+
+<div class="container">
+<p>
+  {{news|json}}
+</p>
+</div>

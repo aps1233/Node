@@ -1,0 +1,16 @@
+<h1 appMydir>Contact us</h1>
+<form method="post" #f1="ngForm">
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="myData.nam" name="nam" class="form-control" #nam="ngModel" required pattern="[a-zA-Z ]{3,30}"/>
+    <div *ngIf="nam.invalid && nam.touched" class="alert alert-danger">
+       <label *ngIf="nam.errors.required">Name is required</label>
+       <label *ngIf="nam.errors.pattern">Allow only alphabate range 3 to 30</label>
+    </div>
+  </div>
+  <div class="form-group">
+      <label>Age</label>
+      <input type="text" [(ngModel)]="myData.age" name="age" class="form-control" #age="ngModel"/>
+    </div>
+  <input type="button" value="Submit" class="btn btn-success" [disabled]="f1.invalid"/>
+</form>

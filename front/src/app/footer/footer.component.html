@@ -1,0 +1,123 @@
+<!-- Modal1 -->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+				<div class="signin-form profile">
+					<h3 class="sign">Sign In</h3>
+					<div class="login-form">
+						<form action="#" method="post">
+							<input type="email" name="email" placeholder="E-mail" required="">
+							<input type="password" name="password" placeholder="Password" required="">
+							<div class="tp">
+								<input type="submit" value="Sign In">
+							</div>
+						</form>
+					</div>
+					<div class="login-social-grids">
+						<ul>
+							<li><a routerLink="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a routerLink="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a routerLink="#"><i class="fa fa-rss"></i></a></li>
+						</ul>
+					</div>
+					<p><a href="#" data-toggle="modal" data-target="#myModal3"> Don't have an account?</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //Modal1 -->
+<!-- Modal2 -->
+<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+				<div class="signin-form profile">
+					<h3 class="sign">Sign Up</h3>
+					<div class="login-form">
+						<form action="#" method="post">
+							<input type="text" name="name" placeholder="Username" required="">
+							<input type="email" name="email" placeholder="Email" required="">
+							<input type="password" name="password" placeholder="Password" required="">
+							<input type="password" name="password" placeholder="Confirm Password" required="">
+							<input type="submit" value="Sign Up">
+						</form>
+					</div>
+					<p><a routerLink="#"> By clicking Sign up, I agree to your terms</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- //Modal2 -->
+
+<!-- footer -->
+	<footer>
+		<div class="footer-top-w3-agileits">
+			<div class="container">
+				<div class="footer-grid-wthree-agiles">
+					<div class="col-md-5 footer-grid-wthree-agile">
+						<h3>About us</h3>
+						<p>Lorem ipsum dolor sit consectetur elit. Nam eget egestas erat. In hachabi tasse platea dictumst. hachabi tasse platea
+							dictumst
+						</p>
+						<p>Lorem ipsum dolor sit consectetur elit. Nam eget egestas erat. In hachabi tasse platea dictumst.</p>
+						<ul class="footer_list_icons">
+							<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+							<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+							<li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+							<li><a href="#"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 footer-grid-wthree-agile">
+						<h3>Links</h3>
+						<ul class="footer-list">
+							<li> <a href="about.html">About</a> </li>
+							<li> <a href="gallery.html">Gallery</a> </li>
+							<li> <a href="shop.html">Shop</a> </li>
+							<li> <a href="blog.html">Blog</a> </li>
+							<li> <a href="404.html">Events</a> </li>
+							<li> <a href="contact.html">Contact</a> </li>
+						</ul>
+					</div>
+					<div class="col-md-4 footer-grid-wthree-agile">
+						<h3>Newsletter</h3>
+						
+							
+							
+							<form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
+								<div class="form-container">
+								  <div class="row columns">
+									  <input type="text" formControlName="name" placeholder="Name">
+									  <!--{{rForm.get('name').value}}-->
+									 
+									<!--{{{{birthday|date:"MM/dd/yy"}}}} pipe will work in html (build in Pipe/predefined Pipe)-->
+									<div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+									  {{ nameAlert }}</div>
+									<input type="text" formControlName="e_mail" placeholder="E-mail">
+									<div class="alert" *ngIf="!rForm.controls['e_mail'].valid && rForm.controls['e_mail'].touched">{{e_mailAlert}}</div>
+									<input type="submit" class="button expanded" value="subscribe now" [disabled]="!rForm.valid">
+								  </div>
+								</div>
+							</form>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="copy_right">
+					<p>©  2018 Surf Inn. All rights reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+				</div>
+			</div>
+		</div>
+
+	</footer>
+	<!-- //footer -->
+

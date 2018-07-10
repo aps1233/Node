@@ -1,0 +1,224 @@
+>db
+test db is already there
+
+studio 3t - for IDE - MongoDB
+
+command:
+use anubhav
+db: which db currently in use
+show dbs : show list of all detabase[non empty database] but not who dont have any table/data
+db.t1.insert({"name":"anubhav"}) [db means database currently in use > anubhav][T1 will create automatically]
+db.dropdatabase() [case sensitive]
+db.createCollection("t1") - Create empty Table
+show collections -  show collections/table of current dabase
+
+
+
+for multiple document/row upload
+
+db.anubhav.insert([{
+"EmpNo":"1",
+"FirstName":"Andrew",
+"LastName":"Neil",
+"Age":"30",
+"Gender":"Male",
+"Skill":"MongoDB",
+"Phone":"408-1234567",
+"Email":"Andrew.Neil@gmail.com",
+"Salary":"80000"
+},
+{
+"EmpNo":"2",
+"FirstName":"Brian",
+"LastName":"Hall",
+"Age":"27",
+"Gender":"Male",
+"Skill":"Javascript",
+"Phone":"408-1298367",
+"Email":"Brian.Hall@gmail.com",
+"Salary":"60000"
+},
+{
+"EmpNo":"3",
+"FirstName":"Chris",
+"LastName":"White",
+"Age":"40",
+"Gender":"Male",
+"Skill":"Python",
+"Phone":"408-4444567",
+"Email":"Chris.White@gmail.com",
+"Salary":"100000"
+},
+{
+"EmpNo":"4",
+"FirstName":"Debbie",
+"LastName":"Long",
+"Age":"32",
+"Gender":"Female",
+"Skill":"Project Management",
+"Phone":"408-1299963",
+"Email":"Debbie.Long@gmail.com",
+"Salary":"105000"
+},
+{
+"EmpNo":"5",
+"FirstName":"Ethan",
+"LastName":"Murphy",
+"Age":"45",
+"Gender":"Male",
+"Skill":"C#",
+"Phone":"408-3314567",
+"Email":"Ethan.Murphy@gmail.com",
+"Salary":"120000"
+},
+{
+"EmpNo":"6",
+"FirstName":"Felicia",
+"LastName":"Lee",
+"Age":"33",
+"Gender":"Female",
+"Skill":"MongoDB",
+"Phone":"408-8832567",
+"Email":"Felicia.Lee@gmail.com",
+"Salary":"85000"
+},
+{
+"EmpNo":"7",
+"FirstName":"George",
+"LastName":"Cyrus",
+"Age":"36",
+"Gender":"Male",
+"Skill":"MongoDB",
+"Phone":"408-9984567",
+"Email":"George.Cyrus@gmail.com",
+"Salary":"88000"
+},
+{
+"EmpNo":"8",
+"FirstName":"Hannah",
+"LastName":"Johnson",
+"Age":"26",
+"Gender":"Female",
+"Skill":"AngularJS",
+"Phone":"408-7654321",
+"Email":"Hannah.Johnson@gmail.com",
+"Salary":"72000"
+}])
+
+MongoDB Tutorial #4 Querys(Find,And,Or,lt,gt): 
+
+
+find data in mongo 
+db.anubhav.find() - to list all data of collections
+db.anubhav.findOne() - for 1 record // case sensitive
+
+$lt   :less then ,< 
+$lte  :less then = ,<=
+
+db.anubhav.find({
+'Gender':'Male',
+'Age':{$lt:"50"},
+'Skill':'MongoDB'
+})
+
+or/and condition : 
+db.anubhav.find({$or/$and:[
+{'Gender':'Male'},{'Age':{$lte:"27"}}
+]})
+
+MongoDB Tutorial #5 Update Documents : 
+
+db.anubhav.update(
+where 
+set
+)
+
+
+update:
+db.anubhav.update(
+{'_id': ObjectId('5b3b8c49f9d4d1d8925c9f3a')},
+{$set:{'Age':'33'}}
+)
+> for multiple row update
+db.anubhav.update(
+{'Age':{$lt:'40'}},
+{$set:{'FirstName':'Brain4'}},
+{multi:true} // if u will not use multi:true, it will effect only first row
+)
+
+MongoDB Tutorial #6 Remove Documents
+
+db.anubhav.remove(
+{'_id':ObjectId('5b3b8c49f9d4d1d8925c9f3c')}
+)
+
+// to remove all matching record 
+db.anubhav.remove(
+{'Age':{$gt:'30'}}
+)
+
+to delete 1/first matching record
+db.anubhav.remove(
+{'Age':{$lte:'30'}},1
+)
+
+
+MongoDB Tutorial #7 Selecting Fields (select date from T1)
+
+
+db.anubhav.find(
+condition
+fieldname
+)
+
+db.anubhav.find(
+{'Age':'45'}, // age = 45
+{'FirstName':1,'_id':1,'LastName':1,'Age':1} // 1 means it will display, omeans not display
+)
+
+MongoDB Tutorial #8 Limit, Skip and Sort
+
+db.anubhav.find({
+
+}).limit(2)
+
+-------------------------------------
+
+db.anubhav.find({
+
+}).skip(2)
+
+---------------------------------
+
+db.anubhav.find({
+
+}).skip(2).limit(2)
+
+-----------------------------------------
+db.anubhav.find({
+
+}).sort({'Age':-1})   [-1 means desc, 1 means asc]
+
+
+MongoDB Tutorial #9 Indexing
+[like book indexing, should be apply on unique field of db like e-mail.]
+
+db.anubhav.ensureIndex ({'E-mail':1}) // create Index on unique field
+db.anubhav.getIndexes() // you can check the indexes using keyvalue.
+db.anubhav.dropIndex({'E-mail':1}) // for drop index
+
+MongoDB Tutorial #10 Aggregation [groping/mathmatical output (max,min)]
+
+db.anubhav.aggregate([{$group:{'_id':'$Gender',	Total:{$sum:1}}}]) --> [O/P->how much total male, how much total female]
+[$group - we are doing grouping]
+['_id':'$Gender' - on the behalf of gender we are doing grouping]
+[Total:{$sum:1} - we need total number after {sum} , total will print in output, 1 means true ]
+
+
+>>db.anubhav.aggregate([{$group:{'_id':'$Gender',	MaxSal:{$max:"$Age"}}}])   [O/P for max age of male, max age of female]
+
+
+
+
+
+
