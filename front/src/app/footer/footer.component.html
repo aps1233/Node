@@ -97,14 +97,14 @@
 							<form [formGroup]="rForm" (ngSubmit)="addPost(rForm.value)">
 								<div class="form-container">
 								  <div class="row columns">
-									  <input type="text" formControlName="name" placeholder="Name">
-									  <!--{{rForm.get('name').value}}-->
-									 
+									<input type="text" formControlName="name" placeholder="Name">
+									<!--{{rForm.get('name').value}}-->
 									<!--{{{{birthday|date:"MM/dd/yy"}}}} pipe will work in html (build in Pipe/predefined Pipe)-->
-									<div class="alert" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
-									  {{ nameAlert }}</div>
+									<div class="alert alert-danger" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
+									{{ nameAlert }}</div>
 									<input type="text" formControlName="e_mail" placeholder="E-mail">
-									<div class="alert" *ngIf="!rForm.controls['e_mail'].valid && rForm.controls['e_mail'].touched">{{e_mailAlert}}</div>
+									<ngx-flash-messages>dsdsd</ngx-flash-messages>
+									<div class="alert alert-danger" *ngIf="!rForm.controls['e_mail'].valid && rForm.controls['e_mail'].touched">{{e_mailAlert}}</div>
 									<input type="submit" class="button expanded" value="subscribe now" [disabled]="!rForm.valid">
 								  </div>
 								</div>

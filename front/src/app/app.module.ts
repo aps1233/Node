@@ -20,6 +20,7 @@ import { FourthDirDirective } from './directive/fourth-dir.directive';
 import { FifthDirDirective } from './directive/fifth-dir.directive';
 import { SixthLoopDirDirective } from './directive/sixth-loop-dir.directive';
 import { Final7Directive } from './directive/final-7.directive';
+import { FlashMessagesModule } from 'ngx-flash-messages';
 const rott:Routes=[
   {path:'',component:HomeComponent},
   {path:'about',component:AboutComponent},
@@ -47,7 +48,8 @@ const rott:Routes=[
     BrowserModule,
 	FormsModule,// module
 	ReactiveFormsModule,
-	HttpClientModule,
+  HttpClientModule,
+  FlashMessagesModule,
 	RouterModule.forRoot(rott)
   ],
   providers: [],// services
