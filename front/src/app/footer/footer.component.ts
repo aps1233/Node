@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FlashMessagesService } from 'ngx-flash-messages';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
@@ -29,18 +28,14 @@ birthday = new Date(1988, 3, 15); // April 15, 1988
 
 //if you have multiple FormControls, you register them within a parent FormGroup.
 
-constructor(private fb: FormBuilder,private flashMessagesService: FlashMessagesService) {
+constructor(private fb: FormBuilder) {
 
-  
-    
-    this.rForm = fb.group({
+  this.rForm = fb.group({
       //'name': [null, Validators.required],
       'name': [null, Validators.compose([Validators.required, Validators.pattern(this.namePattern)])],
       //'e_mail': [null, Validators.compose([Validators.required, Validators.minLength(30), Validators.maxLength(500), Validators.pattern(this.emailPattern)])],
     'e_mail': [null, Validators.compose([Validators.required, Validators.pattern(this.emailPattern)])],
     });
-
-    
     
   }
 
@@ -52,12 +47,8 @@ constructor(private fb: FormBuilder,private flashMessagesService: FlashMessagesS
 
 
   ngOnInit() {
-    // 1st parameter is a flash message text
-    // 2nd parameter is optional. You can pass object with options.
-    this.flashMessagesService.show('My component has initialized!', {
-      classes: ['alert', 'alert-warning'], // You can pass as many classes as you need
-      timeout: 1000, // Default is 3000
-    });
+    
+    
   }
 
 

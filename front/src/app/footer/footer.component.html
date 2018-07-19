@@ -103,7 +103,6 @@
 									<div class="alert alert-danger" *ngIf="!rForm.controls['name'].valid && rForm.controls['name'].touched">
 									{{ nameAlert }}</div>
 									<input type="text" formControlName="e_mail" placeholder="E-mail">
-									<ngx-flash-messages>dsdsd</ngx-flash-messages>
 									<div class="alert alert-danger" *ngIf="!rForm.controls['e_mail'].valid && rForm.controls['e_mail'].touched">{{e_mailAlert}}</div>
 									<input type="submit" class="button expanded" value="subscribe now" [disabled]="!rForm.valid">
 								  </div>
