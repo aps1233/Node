@@ -14,7 +14,7 @@ export class MyCustomServicesService {
 	 
   }
   
-  postdata(url,data)
+  postdata_newsletter(url,data)
   {
 	return this.http.post(url,data); 
   }

@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {HttpClient} from '@angular/common/http';
+
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  
   //post:any;                     // A property for our submitted form // getting all form data
   //e_mail:string = '';
   nameAlert:string = 'Name field is required';
@@ -28,7 +29,7 @@ birthday = new Date(1988, 3, 15); // April 15, 1988
 
 //if you have multiple FormControls, you register them within a parent FormGroup.
 
-constructor(private fb: FormBuilder) {
+constructor(private fb: FormBuilder,private http:HttpClient) {
 
   this.rForm = fb.group({
       //'name': [null, Validators.required],
@@ -39,10 +40,16 @@ constructor(private fb: FormBuilder) {
     
   }
 
-  addPost(post) {
-    console.log(this.rForm.value.name);
-	console.log(this.rForm.value.e_mail);
-	//console.log(this.birthday|date);// Pipe will not work in TS 
+  addNewsletter(post) {
+  //console.log(this.rForm.value.name);
+	//console.log(this.rForm.value.e_mail);
+  //console.log(this.birthday|date);// Pipe will not work in TS 
+  
+  const url="http://localhost:8080/submit_newsletter";
+    this.http.post(url,this.rForm.value)
+    .subscribe(res=>{ console.log(res)},
+    err=>{ console.log("Url not found"+err)})  
+
   }
 
 
