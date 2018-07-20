@@ -1,15 +1,21 @@
 var http = require('http');
 var MongoClient = require('mongodb').MongoClient;
 var dbUrl = "mongodb://127.0.0.1:27017";
-var cors = require('cors'); 
 
 
 
 http.createServer(function (req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write('<link rel="icon" href="data:,">');  
+    
+    
+
+    //res.write('<link rel="icon" href="data:,">');  
+    res.write("Ha Ha1");
+    
        
-                    if((req.method=='POST')&&(req.url=='/submit_newsletter')) {  
+                    /* if((req.method=='POST')&&(req.url=='/submit_newsletter')) {  
                     var body='';           
                     req.on('data', function (data) {
                         body +=data; // read data in chunks
@@ -21,7 +27,7 @@ http.createServer(function (req, res) {
                         //var POST =  qs.parse(body);
                         
                         console.log(body); // s=zzzzzzzzzzzzz
-                    });
+                    }); */
                     
                                 /*MongoClient.connect(dbUrl, function(err, db) {
                                     if (err) throw err;
@@ -33,7 +39,7 @@ http.createServer(function (req, res) {
                                                     db.close();
                                                 });
                                 });*/ 
-                    }
+                  /*  } */
     //console.log(body);              
     res.end(); 
 }).listen(8080);

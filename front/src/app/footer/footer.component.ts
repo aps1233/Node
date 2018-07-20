@@ -45,12 +45,17 @@ constructor(private fb: FormBuilder,private http:HttpClient) {
 	//console.log(this.rForm.value.e_mail);
   //console.log(this.birthday|date);// Pipe will not work in TS 
   
+  
   const url="http://localhost:8080/submit_newsletter";
-    this.http.post(url,this.rForm.value)
-    .subscribe(res=>{ console.log(res)},
-    err=>{ console.log("Url not found"+err)})  
+  this.http.post(url,this.rForm.value,{responseType: 'text'})
+  .subscribe(res=>
+  {
+    console.log(res);
+  })
 
   }
+
+  
 
 
   ngOnInit() {
