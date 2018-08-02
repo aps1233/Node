@@ -12,4 +12,14 @@ app.use(express.static('public'));
 var io = socket(server); // used socket is same which is in line no. 2
 io.on('connection', function(socket){ //socket by which client is making connection to the server
     console.log("Made Socket Connections",socket.id); // socket id will be different for each refresh (each refresh means new chat window or new client)
-    }); 
+    
+    socket.on('chat1',function(data){
+        io.sockets.emit('chat1', data); console.log(data+"ha ha");
+    })
+
+    socket.on('typing',function(data){
+        socket.broadcast.emit('typing',data);
+        
+    });
+    
+});  
