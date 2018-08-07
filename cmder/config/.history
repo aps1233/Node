@@ -49,3 +49,57 @@ nodemon udemy-node.js
 clearBreakpoint(cb)
 clearBreakpoint()
 node debug udemy-node.js
+ls -l
+git status
+ssh http://localhost:4000/
+ssh
+ls
+cd..
+cd Node_basics
+node node_api.js
+cd u
+de .u
+cd *u
+cd udemy
+node udemy-node.js
+nodemon udemy-node.js
+node debug node_api.js
+node debug udemy-node.js
+git status
+ssh http://localhost:4000/
+ssh
+ls
+node node_api.js
+cd u
+de .u
+cd *u
+nodemon udemy-node.js
+node debug node_api.js
+cd..
+cd Node_basics
+cd udemy
+node demy-node.js
+node udemy-node.js
+node inspect udemy-node.js
+127.0.0.1:9229/f34848ad-215e-4cbf-a9db-a28be5f09da0
+node debug udemy-node.js
+exit
+cd u
+de .u
+cd *u
+node debug node_api.js
+node demy-node.js
+node udemy-node.js
+node inspect udemy-node.js
+127.0.0.1:9229/f34848ad-215e-4cbf-a9db-a28be5f09da0
+cd Node_basics
+cd udemy
+nodemon udemy-node.js
+clearBreakpoint(cb)
+clearBreakpoint()
+node debug udemy-node.js
+cd..
+cd Node_basics\Advance_Node\
+vahbu24
+node promises.js
+exit
